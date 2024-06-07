@@ -29,7 +29,7 @@ void manualSort(vector<int>& arr, int low, int high) {
 
 int partition(vector<int>& arr, int low, int high, int pivot) {
     int i = low - 1;
-    int j = high;
+    int j = high + 1;
     while (true) {
         while (arr[++i] < pivot);
         while (arr[--j] > pivot);
@@ -85,7 +85,7 @@ int main() {
     mt19937 gen(rd());
     uniform_int_distribution<> dis(1, 1000);
 
-    vector<int> data(100);
+    vector<int> data(10000);
     generate(data.begin(), data.end(), [&]() { return dis(gen); });
 
     quickSort(data, 0, data.size() - 1);

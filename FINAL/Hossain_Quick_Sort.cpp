@@ -1,13 +1,12 @@
-//Optimized Quick Sort
-//Md. Sabir Hossain proposed algorithm with Insertion Sort
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
 #include <numeric>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 void manualSort(vector<int>& arr, int low, int high) {
     int N = high - low + 1;
@@ -32,7 +31,7 @@ void manualSort(vector<int>& arr, int low, int high) {
 
 int partition(vector<int>& arr, int low, int high, int pivot) {
     int i = low - 1;
-    int j = high;
+    int j = high + 1;
     while (true) {
         while (arr[++i] < pivot);
         while (arr[--j] > pivot);
@@ -74,10 +73,14 @@ int main() {
     mt19937 gen(rd());
     uniform_int_distribution<> dis(1, 1000);
 
-    vector<int> data(100);
+    vector<int> data(100000);
     generate(data.begin(), data.end(), [&]() { return dis(gen); });
 
+    auto start = high_resolution_clock::now();
     quickSort(data, 0, data.size() - 1);
+    auto end = high_resolution_clock::now();
+
+    auto duration = duration_cast<nanoseconds>(end - start);
 
     cout << "Sorted array: ";
     for (int num : data) {
@@ -85,6 +88,7 @@ int main() {
     }
     cout << endl;
 
+    cout << "Execution time: " << duration.count() << " nanoseconds" << endl;
+
     return 0;
 }
-

@@ -111,7 +111,8 @@ int main() {
     quickSort(data, 0, data.size() - 1);
     auto stopSorting = high_resolution_clock::now();
     auto durationSorting = duration_cast<nanoseconds>(stopSorting - startSorting);
-    cout << "Sorting time: " << scientific << durationSorting.count() << " nanoseconds" << endl;
+    cout << "Sorting time: " << durationSorting.count() << " nanoseconds" << endl;
+
 
     return 0;
 }

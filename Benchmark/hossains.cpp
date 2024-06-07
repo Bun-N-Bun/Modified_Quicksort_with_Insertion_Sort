@@ -1,6 +1,6 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
+#include <fstream>
 #include <numeric>
 #include <chrono>
 #include <iomanip>
@@ -93,11 +93,12 @@ int main() {
     vector<int> data = readDataFromFile(filename);
 
     // Sort the data
-    auto startSorting = high_resolution_clock::now();
+ auto startSorting = high_resolution_clock::now();
     quickSort(data, 0, data.size() - 1);
     auto stopSorting = high_resolution_clock::now();
     auto durationSorting = duration_cast<nanoseconds>(stopSorting - startSorting);
-    cout << "Sorting time: " << scientific << durationSorting.count() << " nanoseconds" << endl;
+    cout << "Sorting time: " << durationSorting.count() << " nanoseconds" << endl;
+
 
     return 0;
 }

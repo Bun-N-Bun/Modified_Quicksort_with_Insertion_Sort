@@ -1,4 +1,5 @@
 # Runtime Optimization of Modified Quicksort Using Insertion Sort
+
 ## Overview
 This project implements an optimized version of the Quicksort algorithm by integrating Insertion Sort as a subroutine for sorting small subarrays. The optimization is based on the work of Md. Sabir Hossain, who proposed a new pivot selection method and a "Manual Sort" function to reduce the worst-case complexity of Quicksort to O(n log n). This implementation further enhances runtime performance by using Insertion Sort for small datasets, resulting in improved efficiency.
 
@@ -9,6 +10,8 @@ The project includes three versions of the proposed Quicksort algorithm, each wi
 - Proposed 100 Quicksort: Threshold of 100.
 
 These versions are tested against Hossain’s Quicksort and the Classical Quicksort on various data distributions (Uniform, Normal, Exponential, Bimodal, and Reversed) and dataset sizes (10, 100, 1000, 10000, and 100000).
+
+[Read the full paper here](Runtime_Optimization_of_Modified_Quicksort_Using_Insertion_Sort.pdf)
 
 ---
 ### Results
